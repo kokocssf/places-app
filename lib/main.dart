@@ -1,5 +1,6 @@
 import 'package:app6/screens/places.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
 
@@ -11,7 +12,7 @@ final ColorScheme colorScheme =
     );
 
 void main() {
-  runApp(const MyApp());
+  runApp( const ProviderScope(child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
