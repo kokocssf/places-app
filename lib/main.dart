@@ -2,8 +2,6 @@ import 'package:app6/screens/places.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
-
 final ColorScheme colorScheme =
     ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 183, 2, 255),
     background: Colors.brown,
@@ -29,7 +27,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: colorScheme.background,
     
       ),
-      home: PlacesScreen()
+      home: PlacesScreen(),
     );
   }
 }
