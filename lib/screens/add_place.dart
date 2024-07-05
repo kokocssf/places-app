@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -13,13 +15,14 @@ class AddPlaceScreen extends ConsumerStatefulWidget {
 
 class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
   final _titleController = TextEditingController();
+   File? _selectImage;
 
   _savePlace() {
     final enterTitle = _titleController.text;
-    if (enterTitle.isEmpty) {
+    if (enterTitle.isEmpty||_selectImage==null) {
       return;
     }
-    ref.read(userPlacesProvider.notifier).addPlace(enterTitle);
+    ref.read(userPlacesProvider.notifier).addPlace(enterTitle,_selectImage!);
     Navigator.pop(context);
   }
 
@@ -45,7 +48,7 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
             ),  const SizedBox(
               height: 10,
             ),
-            const ImageInput(),
+            ImageInput(onSelectImage: (File image) =>_selectImage=image,),
             const SizedBox(
               height: 16,
             ),
