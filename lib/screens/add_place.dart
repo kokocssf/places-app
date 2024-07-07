@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:app6/widgets/location_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -35,7 +36,7 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("add new place ")),
+      appBar: AppBar(title: const Text("add new place "),),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(12),
         child: Column(
@@ -49,6 +50,11 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
               height: 10,
             ),
             ImageInput(onSelectImage: (File image) =>_selectImage=image,),
+ const SizedBox(
+              height: 10,
+            ),//location input
+            LocationInput(),
+
             const SizedBox(
               height: 16,
             ),
